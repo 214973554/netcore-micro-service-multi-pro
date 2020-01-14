@@ -21,6 +21,9 @@ namespace APIGateway
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                });
+                })
+            .ConfigureAppConfiguration((hostBuilderContext, configurationBuilder) => {
+                configurationBuilder.AddJsonFile("configuration.json", false, true);
+            });
     }
 }

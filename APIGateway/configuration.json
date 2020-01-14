@@ -1,0 +1,50 @@
+{
+  "ReRoutes": [
+    // API:ClientService
+    {
+      "DownstreamPathTemplate": "/api/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "10.138.30.196",
+          "Port": "8810"
+        }
+      ],
+      "UpstreamPathTemplate": "/ClientService/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+      //"UseServiceDiscovery": true, // use Consul service discovery
+      //"ServiceName": "Ocelot.ClientService",
+      //"LoadBalancerOptions": {
+      //  "Type": "RoundRobin"
+      //},
+      //"ReRoutesCaseSensitive": false // non case sensitive
+    },
+    // API:ProductService
+    {
+      "DownstreamPathTemplate": "/api/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "10.138.30.196",
+          "Port": "8820"
+        }
+      ],
+      "UpstreamPathTemplate": "/ProductService/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+      //"UseServiceDiscovery": true, // use Consul service discovery
+      //"ServiceName": "Ocelot.ProductService",
+      //"LoadBalancerOptions": {
+      //  "Type": "RoundRobin"
+      //},
+      //"ReRoutesCaseSensitive": false // non case sensitive
+    }
+  ]
+  //,
+  //"GlobalConfiguration": {
+  //  //"BaseUrl": "https://api.mybusiness.com"
+  //  "ServiceDiscoveryProvider": {
+  //    "Host": "192.168.96.128", // Consul Service IP
+  //    "Port": 8510 // Consul Service Port
+  //  }
+  //}
+}
